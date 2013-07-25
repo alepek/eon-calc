@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>EC</title>
+    <title>ECC - Eon Combat Calculator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
     <link rel="stylesheet" href="css/gumby.css">
@@ -33,7 +33,7 @@
       z-index:-2;
     }
     .backgroundOpacifier {
-        opacity: 0.5;
+        opacity: 0.6;
         top: 0;
         left: 0;
         bottom: 0;
@@ -41,6 +41,9 @@
         position: absolute;
         background-color:black;
         z-index: -1;   
+    }
+    .customTableHeader{
+      bckground-color:#4a4d50 !important;
     }
     </style>
   </head>
@@ -62,17 +65,54 @@
       </div>
     </nav>
     <div class="row pagePane homePane">
-      <div class="fourteen columns">
-        <h3>Home</h3>
-        <p>Gumby Framework uses a container class to create a base padding. We also use row classes to create horizontal rows, define the page's max-width, and contain the various page columns. Column classes round out the bunch and create the final structure of the page. The magic of responsivity occurs because columns don't have a fixed width: they can vary based on the resolution of the screen, or the size of the window (try scaling down this window to see what we mean). This allows for your project to adapt to any viewport, any device, without separate stylesheets or html templates.</p>
+      <div class="twelve columns centered">
+        <h3 class="lead">Welcome!</h3>
+        <p>You're probably here to bash some dwarven heads in, or drink copious amounts of ale! Sadly I can only help with the first of those noble quests. This site hosts a simple calculator for determining damage in the swedish roleplaying game Eon. head on over to the Calculator to begin. Bear in mind most of the stuff over there might be in swedish due to laziness.</p>
       </div>
 
     </div>
     <div class="row hidden pagePane calculatorPane">
-      <div class="fourteen columns">
-        <h3>Calculator</h3>      
-        <p>Gumby Framework uses a container class to create a base padding. We also use row classes to create horizontal rows, define the page's max-width, and contain the various page columns. Column classes round out the bunch and create the final structure of the page. The magic of responsivity occurs because columns don't have a fixed width: they can vary based on the resolution of the screen, or the size of the window (try scaling down this window to see what we mean). This allows for your project to adapt to any viewport, any device, without separate stylesheets or html templates.</p>
+    <div class="twelve columns centered">
+      <div class="row">
+        <div class="six columns centered">
+          <ul>
+            <li class="field"><input class="xxwide text input" type="text" placeholder="Skriv in skadevärde."></li>
+          </ul>
+        </div>
       </div>
+      <div class="row">
+        <div class="twelve columns centered" id="outputTableContainer">
+          <table class="striped rounded">
+            <caption>Skada åsamkad beroende på RV</caption>
+            <thead class="customTableHeader">
+              <tr>
+                <th>RV</th>
+                <th>Effekter</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0-9</td>
+                <td>
+                  <div class="medium info btn"><a>2T 3S 5B</a></div>
+                  <div class="medium info btn"><a>2T 3S 5B</a></div>
+                  <div class="medium info btn"><a>2T 3S 5B</a></div>
+                  <div class="medium danger btn"><a>6T 9S 15B</a></div>
+                </td>
+              </tr>
+              <tr>
+                <td>11-20</td>
+                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et dignissim magna, id molestie dui.</td>
+              </tr>
+              <tr>
+                <td>21-30</td>
+                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et dignissim magna, id molestie dui.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
     </div>
   </body>
 </html>
