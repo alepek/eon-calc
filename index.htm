@@ -51,6 +51,13 @@
     .blackShadow{
       text-shadow: 2px 2px 3px rgba(25, 25, 25, 0.5);
     }
+    .text-centered{
+      text-align: center;
+    }
+    .hugeInput{
+      padding:25px !important;
+      font-size:x-large !important;
+    }
     </style>
   </head>
   <body class="backgrounded">
@@ -85,14 +92,14 @@
         <div class="row">
           <div class="six columns centered">
             <ul>
-              <li class="field"><input class="xxwide text input" type="text" placeholder="Skriv in skadevärde."></li>
+              <li class="field"><input class="xxwide text input hugeInput" type="text" placeholder="Skriv in skadevärde."></li>
             </ul>
           </div>
         </div>
         <div class="row">
           <div class="twelve columns centered" id="outputTableContainer">
-            <table class="striped rounded">
-              <caption class="brighterFont">Skada åsamkad beroende på RV</caption>
+            <h3 class="brighterFont text-centered">Skada åsamkad beroende på RV</h3>
+            <table class="striped rounded">              
               <thead class="customTableHeader">
                 <tr>
                   <th>RV</th>
