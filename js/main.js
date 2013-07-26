@@ -33,6 +33,8 @@ $(function()
 	GC.CalculatorPane = jQuery(".calculatorPane");
 	GC.HomePane = jQuery(".homePane");
 	GC.DamageInput = jQuery("#damageInput");
+	GC.InputWarning = jQuery("#inputWarning");
+	GC.OutputArea = jQuery("#outputContainer");
 
 	GC.crushButton = jQuery(".damageButton.crush");
 	GC.pokeButton = jQuery(".damageButton.poke");
@@ -52,15 +54,15 @@ $(function()
 	});
 	GC.crushButton.click(function()
 	{
-		ResultUpdater.GenerateResultOutput();
+		ResultUpdater.GenerateResultOutput("krosskada");
 	});
 	GC.pokeButton.click(function()
 	{
-		ResultUpdater.GenerateResultOutput();
+		ResultUpdater.GenerateResultOutput("stickskada");
 	});
 	GC.chopButton.click(function()
 	{
-		ResultUpdater.GenerateResultOutput();
+		ResultUpdater.GenerateResultOutput("huggskada");
 	});
 });
 
@@ -112,26 +114,87 @@ ResultUpdater =
 		}
 		return true;
 	},
-	GenerateResultOutput: function()
+	GenerateResultOutput: function(damageType)
 	{
 		var damageValue = GC.DamageInput.val();
 		if(!ResultUpdater.CheckDamageValue(damageValue))
 		{
-			// show warning
+			ResultUpdater.ShowInvalidInputWarning("Skriv in ett heltal.")
 			return;
 		}
 
 		damageValue = parseInt(damageValue);
 		if(damageValue > 100)
 		{
+			ResultUpdater.ShowInvalidInputWarning("Jag tror dig inte. Försök igen.")			
 			// show invalid input warning - only gods hit this hard, and we are mere mortals.
 			// also I am too lazy to design the gui properly for such huge amounts of extra damage.
 			return;
 		}
-
 		// alright, let's get cracking.
-	}
 
+		var hit = EonRules.RollForHit(damageValue);
+		var mainHitArea = hit.hitArea.title;
+		var subHitArea = hit.subHitArea.title;
+		var extraDamages = hit.subHitArea.extraDamages;
+		var firstBreak = damageValue % 10;
+
+		GC.OutputArea.empty();
+		var tc = jQuery("#templateContainer");
+		var heading = tc.find(".damageHeading").clone();
+		heading.find(".damageType").text(damageType);
+		heading.find(".damageValue").text(damageValue);
+		heading.find(".areasHit").text("Du träffade i " +mainHitArea + " - " +subHitArea);
+		GC.OutputArea.append(heading);
+		for(var i=0; i<extraDamages.length+1; i++)
+		{
+			var maximum = firstBreak + i*10;
+			var minimum = firstBreak + (i-1)*10 +1;
+			if(minimum < 0)
+				minimum = 0;
+			var text = ""+minimum+" - "+maximum;
+
+			if(i === extraDamages.length)
+			{
+				minimum = minimum-1;
+				if(minimum < 0)
+					minimum = 0;
+				text = ""+minimum+"+";
+			}
+
+			var exdmg = [];
+			for(var k = i; k<extraDamages.length; k++)
+			{
+				exdmg.push(extraDamages[k]);
+			}
+
+			var toAppend = tc.find(".intervalContainer").clone();
+
+			toAppend.find(".armorInterval").text(text);
+			toAppend.find(".damagesForInterval").append(tc.find(".basicDamage").clone());
+			for(var k=0;k<exdmg.length;k++)
+			{
+				var extralabel = tc.find(".extraDamageItem").clone();
+				extralabel.find(".areaValue").text(exdmg[k]);
+				toAppend.find(".damagesForInterval").append(extralabel);
+			}
+			GC.OutputArea.append(toAppend);
+		}
+	},
+	ShowInvalidInputWarning: function(reason)
+	{
+		if(GC.InputWarning.is(":visible"))
+			return;
+		
+		GC.InputWarning.text(reason);
+		GC.InputWarning.slideDown(250, function()
+		{
+			setTimeout(function()
+			{
+				GC.InputWarning.slideUp(500);
+			}, 5000)
+		});		
+	}
 }
 
 DiceRoller = 
@@ -293,20 +356,25 @@ EonRules =
 			return H.rightLeg.foot;
 		}
 	},
-	RollForHit: function()
+	RollForHit: function(damage)
 	{
 		var d100 = DiceRoller.RollD100(1, false);
 		var d10 = DiceRoller.RollD10(1, false);
 
 		var hitArea = EonRules.GetHitAreaFromRoll(d100);
 		var subHitArea = EonRules.GetSubHitAreaFromRoll(d10, hitArea);
-		subHitArea.extraDamages = [];
-		for(var i=0;i<5;i++)
+		var extraDamages = [];
+		for(var i=0;i<Math.floor(damage/10);i++)
 		{
-			subHitArea.extraDamages.push(DiceRoller.RollD10(1,false).result);
+			extraDamages.push(DiceRoller.RollD10(1,false).result);
 		}
-
-		return {hitArea:hitArea, subHitArea:subHitArea};
+		var subhit = {};
+		if(subHitArea.title)
+			subhit.title = subHitArea.title;
+		else
+			subhit.title = subHitArea;
+		subhit.extraDamages = extraDamages;
+		return {hitArea:hitArea, subHitArea:subhit};
 	}
 };
 

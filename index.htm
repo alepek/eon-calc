@@ -35,7 +35,7 @@
 
     }
     .backgroundOpacifier {
-        opacity: 0.33;
+        opacity: 0;
         top: 0;
         left: 0;
         bottom: 0;
@@ -59,10 +59,12 @@
     .damageButton{
       cursor:pointer;
     }
+    .basicDamage, .extraDamageItem{
+      margin-right:10px;
+    }
     </style>
   </head>
   <body class="backgrounded">
-    <div class="backgroundOpacifier"></div>
     <nav id="navbar-main-nav" class="navbar">
       <div class="row">
         <a style="cursor:pointer;" class="toggle" gumby-trigger="#navbar-main-nav #main-nav"><i class="icon-menu"></i></a>
@@ -95,6 +97,7 @@
             <p class="brighterFont text-centered">Skriv in skadevärde (innan avdrag för RV)</p>
             <ul>
               <li class="field"><input class="xxwide text input" type="text" id="damageInput"></li>
+              <li class="danger alert hidden" id="inputWarning"></li>
             </ul>
           </div>
         </div>
@@ -110,40 +113,6 @@
         <div class="row">
           <div class="twelve columns centered" id="outputContainer">
 
-            <h3 class="brighterFont text-centered">Skada åsamkad beroende på RV</h3>
-            <table class="striped rounded">              
-              <thead class="customTableHeader">
-                <tr>
-                  <th>RV</th>
-                  <th>Effekter</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>0-9</td>
-                  <td>
-                    <li class="info label">2T 3S 5B</li>
-                    <li class="info label">2T 3S 5B</li>
-                    <li class="info label">2T 3S 5B</li>
-                    <li class="danger label">6T 9S 15B</li>
-                    
-                  </td>
-                </tr>
-                <tr>
-                  <td>11-20</td>
-                  <td>
-                    <div class="medium info btn"><a>2T 3S 5B</a></div>
-                    <div class="medium info btn"><a>2T 3S 5B</a></div>
-                    <div class="medium info btn"><a>2T 3S 5B</a></div>
-                    <div class="medium danger btn"><a>6T 9S 15B</a></div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>21-30</td>
-                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
         </div>
       </div>
@@ -154,5 +123,22 @@
         <p class="brighterFont">lol, dunno</p>
       </div>
     </div>
+
+    <div id="templateContainer" class="hidden">
+      <div class="damageHeading text-centered">
+        <h4 class="brighterFont">Du gjorde <span class="damageType"></span> för ett skadevärde av <span class="damageValue"></span>.</h4>
+        <h4 class="areasHit brighterFont"></h4>
+      </div>
+      <div class="intervalContainer">
+        <h4 class="armorInterval brighterFont"></h4>
+        <div class="damagesForInterval">
+              
+        </div>
+        <br/>
+      </div>
+      <label class="info label basicDamage">Grundskada</label>
+      <label class="warning label extraDamageItem">Extraskada i område <span class="areaValue"></span></label>
+    </div>
+
   </body>
 </html>
