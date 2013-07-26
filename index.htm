@@ -32,6 +32,7 @@
       -o-background-size: cover;
       background-size: cover;
       z-index:-5;
+
     }
     .backgroundOpacifier {
         opacity: 0.33;
@@ -41,8 +42,8 @@
         right: 0;
         position: absolute;
         background-color:black;
-        z-index: -4;   
-    }
+        z-index: -4;
+      }
     .customTableHeader{
       background-color:#4a4d50 !important;
     }
@@ -91,22 +92,24 @@
       <div class="twelve columns centered">
         <div class="row">
           <div class="six columns centered">
+            <p class="brighterFont text-centered">Skriv in skadevärde (innan avdrag för RV)</p>
             <ul>
-              <li class="field"><input class="xxwide text input" type="text" placeholder="Skriv in skadevärde."></li>
+              <li class="field"><input class="xxwide text input" type="text" id="damageInput"></li>
             </ul>
           </div>
         </div>
         <div class="row">
           <div class="six columns centered text-centered">
-            <p class="brighterFont text-centered">Välj skadetyp</p>
-            <div class="medium default btn damageButton crush"><a href="#">Kross</a></div>
-            <div class="medium default btn damageButton poke"><a href="#">Stick</a></div>
-            <div class="medium default btn damageButton chop"><a href="#">Hugg</a></div>
+            <p class="brighterFont text-centered">Välj skadetyp (klicka igen för att generera nytt resultat)</p>
+            <div class="medium default btn damageButton crush"><a>Kross</a></div>
+            <div class="medium default btn damageButton poke"><a>Stick</a></div>
+            <div class="medium default btn damageButton chop"><a>Hugg</a></div>
           </div>
         </div>
         <br/>
         <div class="row">
-          <div class="twelve columns centered" id="outputTableContainer">
+          <div class="twelve columns centered" id="outputContainer">
+
             <h3 class="brighterFont text-centered">Skada åsamkad beroende på RV</h3>
             <table class="striped rounded">              
               <thead class="customTableHeader">
@@ -148,7 +151,7 @@
     <div class="row hidden pagePane helpPane">
       <div class="twelve columns centered">
         <h3 class="lead brighterFont">Hur använder man kalkylatorn egentligen?</h3>
-        <p class="brighterFont">Mer här snart.</p>
+        <p class="brighterFont">lol, dunno</p>
       </div>
     </div>
   </body>
