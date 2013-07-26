@@ -56,6 +56,9 @@
     .text-centered{
       text-align: center;
     }
+    #damageInput{
+      font-size:x-large;
+    }
     .damageButton{
       cursor:pointer;
     }
@@ -63,12 +66,13 @@
       margin-right:10px;
       margin-bottom:10px;
     }
+    .damageValue, .damageType, .firstArea, .secondArea {font-weight:bold; color:white;}
     </style>
   </head>
   <body class="backgrounded">
     <nav id="navbar-main-nav" class="navbar">
       <div class="row">
-        <a style="cursor:pointer;" class="toggle" gumby-trigger="#navbar-main-nav #main-nav"><i class="icon-menu"></i></a>
+        <a style="cursor:pointer;" class="toggle" gumby-trigger="#navbar-main-nav #main-nav" id="datGumbyTrigger"><i class="icon-menu"></i></a>
         <nav class="twelve columns">
           <ul id="main-nav" class="blackShadow">
             <li>
@@ -94,20 +98,26 @@
     <div class="row hidden pagePane calculatorPane">
       <div class="twelve columns centered">
         <div class="row">
-          <div class="six columns centered">
-            <p class="brighterFont text-centered">Skriv in skadevärde (innan avdrag för RV)</p>
+          <div class="twelve columns centered">
+            <h4 class="brighterFont text-centered">Skriv in skadevärde (innan avdrag för RV)</h4>
+            <br/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="six columns centered">        
             <ul>
               <li class="field"><input class="xxwide text input" type="number" id="damageInput"></li>
-              <li class="danger alert hidden" id="inputWarning"></li>
+              <li class="danger alert hidden" id="inputWarning"><h4></h4></li>
             </ul>
           </div>
         </div>
         <div class="row">
-          <div class="six columns centered text-centered">
-            <p class="brighterFont text-centered">Välj skadetyp (klicka igen för att generera nytt resultat)</p>
-            <div class="medium default btn damageButton crush"><a>Kross</a></div>
-            <div class="medium default btn damageButton poke"><a>Stick</a></div>
-            <div class="medium default btn damageButton chop"><a>Hugg</a></div>
+          <div class="twelve columns centered text-centered">
+            <h4 class="brighterFont text-centered">Välj skadetyp (klicka igen för att generera nytt resultat)</h4>
+            <br/>            
+            <div class="large info btn damageButton crush"><a>Kross</a></div>
+            <div class="large info btn damageButton poke"><a>Stick</a></div>
+            <div class="large info btn damageButton chop"><a>Hugg</a></div>
           </div>
         </div>
         <br/>
@@ -128,7 +138,7 @@
     <div id="templateContainer" class="hidden">
       <div class="damageHeading text-centered">
         <h4 class="brighterFont">Du gjorde <span class="damageType"></span> för ett skadevärde av <span class="damageValue"></span>.</h4>
-        <h4 class="areasHit brighterFont"></h4>
+        <h4 class="areasHit brighterFont">Du träffade i <span class="firstArea" ></span> - <span class="secondArea"></span></h4>
       </div>
       <div class="intervalContainer">
         <h4 class="armorInterval brighterFont"></h4>

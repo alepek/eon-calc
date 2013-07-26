@@ -69,6 +69,7 @@ $(function()
 
 switchPanes = function(targetPaneButton)
 {
+	jQuery("#datGumbyTrigger").trigger("gumby.trigger");
 	if(GC.SwitchingPanes)
 		return;
 
@@ -145,7 +146,8 @@ ResultUpdater =
 
 		heading.find(".damageType").text(damageType);
 		heading.find(".damageValue").text(damageValue);
-		heading.find(".areasHit").text("Du träffade i " +mainHitArea + " - " +subHitArea);
+		heading.find(".areasHit").find(".firstArea").text(mainHitArea);
+		heading.find(".areasHit").find(".secondArea").text(subHitArea);
 
 		GC.OutputArea.append(heading);
 		for(var i=0; i<extraDamages.length+1; i++)
@@ -189,7 +191,7 @@ ResultUpdater =
 		if(GC.InputWarning.is(":visible"))
 			return;
 		
-		GC.InputWarning.text(reason);
+		GC.InputWarning.find("h4").text(reason);
 		GC.InputWarning.slideDown(250, function()
 		{
 			setTimeout(function()
