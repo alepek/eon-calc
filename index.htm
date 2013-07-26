@@ -61,6 +61,7 @@
     }
     .basicDamage, .extraDamageItem{
       margin-right:10px;
+      margin-bottom:10px;
     }
     </style>
   </head>
@@ -96,7 +97,7 @@
           <div class="six columns centered">
             <p class="brighterFont text-centered">Skriv in skadevärde (innan avdrag för RV)</p>
             <ul>
-              <li class="field"><input class="xxwide text input" type="text" id="damageInput"></li>
+              <li class="field"><input class="xxwide text input" type="number" id="damageInput"></li>
               <li class="danger alert hidden" id="inputWarning"></li>
             </ul>
           </div>
@@ -134,7 +135,6 @@
         <div class="damagesForInterval">
               
         </div>
-        <br/>
       </div>
       <label class="info label basicDamage">Grundskada</label>
       <label class="warning label extraDamageItem">Extraskada i område <span class="areaValue"></span></label>

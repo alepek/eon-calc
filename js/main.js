@@ -142,9 +142,11 @@ ResultUpdater =
 		GC.OutputArea.empty();
 		var tc = jQuery("#templateContainer");
 		var heading = tc.find(".damageHeading").clone();
+
 		heading.find(".damageType").text(damageType);
 		heading.find(".damageValue").text(damageValue);
 		heading.find(".areasHit").text("Du träffade i " +mainHitArea + " - " +subHitArea);
+
 		GC.OutputArea.append(heading);
 		for(var i=0; i<extraDamages.length+1; i++)
 		{
@@ -170,8 +172,9 @@ ResultUpdater =
 
 			var toAppend = tc.find(".intervalContainer").clone();
 
-			toAppend.find(".armorInterval").text(text);
+			toAppend.find(".armorInterval").text("RV "+text);
 			toAppend.find(".damagesForInterval").append(tc.find(".basicDamage").clone());
+			toAppend.find(".damagesForInterval").append("<br/>");
 			for(var k=0;k<exdmg.length;k++)
 			{
 				var extralabel = tc.find(".extraDamageItem").clone();
