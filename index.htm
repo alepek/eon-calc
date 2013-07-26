@@ -11,16 +11,17 @@
     <script src="js/libs/jquery-2.0.2.min.js"></script>
     <script src="js/libs/jquery.mobile.custom.min.js"></script>
     <script src="js/libs/gumby.js"></script>
+    <script src="js/libs/gumby.init.js"></script>
     <script src="js/libs/ui/gumby.navbar.js"></script>
     <script src="js/libs/ui/gumby.fittext.js"></script>
     <script src="js/libs/ui/gumby.fixed.js"></script>
     <script src="js/libs/ui/gumby.tabs.js"></script>
     <script src="js/libs/ui/gumby.toggleswitch.js"></script>
     <script src="js/libs/ui/gumby.checkbox.js"></script>
-    <script src="js/libs/gumby.init.js"></script>
+    
     <script src="js/main.js"></script>
     <style>
-    .toolbarHeading{ color:grey; padding-left:10px; padding-right:10px;}
+    .toolbarHeading{ color:grey; margin-right:20px; margin-left:20px;}
     .toolbarHeading:hover{color:#ccc; cursor:pointer;}
     .toolbarHeading.active{color:#ccc;}
     .hidden {display:none;}
@@ -30,17 +31,17 @@
       -moz-background-size: cover;
       -o-background-size: cover;
       background-size: cover;
-      z-index:-2;
+      z-index:-5;
     }
     .backgroundOpacifier {
-        opacity: 0.6;
+        opacity: 0.33;
         top: 0;
         left: 0;
         bottom: 0;
         right: 0;
         position: absolute;
         background-color:black;
-        z-index: -1;   
+        z-index: -4;   
     }
     .customTableHeader{
       background-color:#4a4d50 !important;
@@ -54,9 +55,8 @@
     .text-centered{
       text-align: center;
     }
-    .hugeInput{
-      padding:25px !important;
-      font-size:x-large !important;
+    .damageButton{
+      cursor:pointer;
     }
     </style>
   </head>
@@ -92,10 +92,19 @@
         <div class="row">
           <div class="six columns centered">
             <ul>
-              <li class="field"><input class="xxwide text input hugeInput" type="text" placeholder="Skriv in skadevärde."></li>
+              <li class="field"><input class="xxwide text input" type="text" placeholder="Skriv in skadevärde."></li>
             </ul>
           </div>
         </div>
+        <div class="row">
+          <div class="six columns centered text-centered">
+            <p class="brighterFont text-centered">Välj skadetyp</p>
+            <div class="medium default btn damageButton crush"><a>Kross</a></div>
+            <div class="medium default btn damageButton poke"><a>Stick</a></div>
+            <div class="medium default btn damageButton chop"><a>Hugg</a></div>
+          </div>
+        </div>
+        <br/>
         <div class="row">
           <div class="twelve columns centered" id="outputTableContainer">
             <h3 class="brighterFont text-centered">Skada åsamkad beroende på RV</h3>
