@@ -103,6 +103,8 @@ switchPanes = function(targetPaneButton)
 	}
 }
 
+
+
 ResultUpdater = 
 {
 	CheckDamageValue: function(string)

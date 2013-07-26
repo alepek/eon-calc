@@ -1,0 +1,7 @@
+This project is licensed under the Creative Commons license, version 3.0: http://creativecommons.org/licenses/by-nc-nd/3.0/
+
+This project uses software from the following sources, thanks a lot to them for producing awesome frameworks!
+http://www.icotrip.com/
+http://gumbyframework.com/
+http://jquery.com/
+http://modernizr.com/

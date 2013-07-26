@@ -67,6 +67,12 @@
       margin-bottom:10px;
     }
     .damageValue, .damageType, .firstArea, .secondArea {font-weight:bold; color:white;}
+    .secretImageContainer
+    {
+      position:fixed;
+      bottom:10px;
+      right:10px;
+    }
     </style>
   </head>
   <body class="backgrounded">
@@ -115,9 +121,9 @@
           <div class="twelve columns centered text-centered">
             <h4 class="brighterFont text-centered">Välj skadetyp (klicka igen för att generera nytt resultat)</h4>
             <br/>            
-            <div class="large info btn damageButton crush"><a>Kross</a></div>
-            <div class="large info btn damageButton poke"><a>Stick</a></div>
-            <div class="large info btn damageButton chop"><a>Hugg</a></div>
+            <div class="medium info btn damageButton crush"><a>Kross</a></div>
+            <div class="medium info btn damageButton poke"><a>Stick</a></div>
+            <div class="medium info btn damageButton chop"><a>Hugg</a></div>
           </div>
         </div>
         <br/>
@@ -134,7 +140,6 @@
         <p class="brighterFont">lol, dunno</p>
       </div>
     </div>
-
     <div id="templateContainer" class="hidden">
       <div class="damageHeading text-centered">
         <h4 class="brighterFont">Du gjorde <span class="damageType"></span> för ett skadevärde av <span class="damageValue"></span>.</h4>
