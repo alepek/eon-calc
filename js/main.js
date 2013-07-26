@@ -27,6 +27,7 @@ $(function()
 
 	GC.AllNavButtons = jQuery(".toolbarHeading");
 	GC.HomeButton = jQuery(".toolbarHeading.home");
+	GC.HelpButton = jQuery(".toolbarHeading.help");
 	GC.CalculatorButton = jQuery(".toolbarHeading.calculator");
 	GC.AllPanes = jQuery(".pagePane")
 	GC.CalculatorPane = jQuery(".calculatorPane");
@@ -37,6 +38,10 @@ $(function()
 		switchPanes(jQuery(this));
 	});
 	GC.CalculatorButton.click(function()
+	{
+		switchPanes(jQuery(this));
+	});
+	GC.HelpButton.click(function()
 	{
 		switchPanes(jQuery(this));
 	});
@@ -66,9 +71,9 @@ switchPanes = function(targetPaneButton)
 			var targetPane = jQuery(this);
 			if(targetPane.is(":visible"))
 			{
-				targetPane.fadeOut(function()
+				targetPane.fadeOut(100, function()
 				{
-					targetPane.parent().find(".pagePane:eq("+index+")").fadeIn(function()
+					targetPane.parent().find(".pagePane:eq("+index+")").fadeIn(100, function()
 					{
 						GC.SwitchingPanes =false;
 					});

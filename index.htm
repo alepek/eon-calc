@@ -45,6 +45,12 @@
     .customTableHeader{
       background-color:#4a4d50 !important;
     }
+    .brighterFont{
+      color:#bcbcbc;
+    }
+    .blackShadow{
+      text-shadow: 2px 2px 3px rgba(25, 25, 25, 0.5);
+    }
     </style>
   </head>
   <body class="backgrounded">
@@ -55,10 +61,13 @@
         <nav class="twelve columns pull_left">
           <ul id="main-nav">
             <li>
-              <h2 class="toolbarHeading home active"><span>Home</span></h2>
+              <h2 class="toolbarHeading home active blackShadow"><span>Hem</span></h2>
             </li>
             <li>
-              <h2 class="toolbarHeading calculator"><span>Calculator</span></h2>
+              <h2 class="toolbarHeading calculator blackShadow"><span>Kalkylator</span></h2>
+            </li>
+            <li>
+              <h2 class="toolbarHeading help blackShadow"><span>Hjälp</span></h2>
             </li>
           </ul>
         </nav>
@@ -66,53 +75,59 @@
     </nav>
     <div class="row pagePane homePane">
       <div class="twelve columns centered">
-        <h3 class="lead">Welcome!</h3>
-        <p>You're probably here to bash some dwarven heads in, or drink copious amounts of ale! Sadly I can only help with the first of those noble quests. This site hosts a simple calculator for determining damage in the swedish roleplaying game Eon. head on over to the Calculator to begin. Bear in mind most of the stuff over there might be in swedish due to laziness.</p>
+        <h3 class="lead brighterFont">Välkommen!</h3>
+        <p class="brighterFont">Antagligen är du här för att slåss mot dvärgar eller för att dricka kopiösa mängder mjöd. Tyvärr kan den här siten bara assistera dig med det första av de två. Gå till kalkylatorn för att sätta igång!</p>
       </div>
 
     </div>
     <div class="row hidden pagePane calculatorPane">
-    <div class="twelve columns centered">
-      <div class="row">
-        <div class="six columns centered">
-          <ul>
-            <li class="field"><input class="xxwide text input" type="text" placeholder="Skriv in skadevärde."></li>
-          </ul>
+      <div class="twelve columns centered">
+        <div class="row">
+          <div class="six columns centered">
+            <ul>
+              <li class="field"><input class="xxwide text input" type="text" placeholder="Skriv in skadevärde."></li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="twelve columns centered" id="outputTableContainer">
-          <table class="striped rounded">
-            <caption>Skada åsamkad beroende på RV</caption>
-            <thead class="customTableHeader">
-              <tr>
-                <th>RV</th>
-                <th>Effekter</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>0-9</td>
-                <td>
-                  <div class="medium info btn"><a>2T 3S 5B</a></div>
-                  <div class="medium info btn"><a>2T 3S 5B</a></div>
-                  <div class="medium info btn"><a>2T 3S 5B</a></div>
-                  <div class="medium danger btn"><a>6T 9S 15B</a></div>
-                </td>
-              </tr>
-              <tr>
-                <td>11-20</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et dignissim magna, id molestie dui.</td>
-              </tr>
-              <tr>
-                <td>21-30</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean et dignissim magna, id molestie dui.</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="row">
+          <div class="twelve columns centered" id="outputTableContainer">
+            <table class="striped rounded">
+              <caption class="brighterFont">Skada åsamkad beroende på RV</caption>
+              <thead class="customTableHeader">
+                <tr>
+                  <th>RV</th>
+                  <th>Effekter</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0-9</td>
+                  <td>
+                    <div class="medium info btn"><a>2T 3S 5B</a></div>
+                    <div class="medium info btn"><a>2T 3S 5B</a></div>
+                    <div class="medium info btn"><a>2T 3S 5B</a></div>
+                    <div class="medium danger btn"><a>6T 9S 15B</a></div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>11-20</td>
+                  <td>Aenean et dignissim magna, id molestie dui.</td>
+                </tr>
+                <tr>
+                  <td>21-30</td>
+                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
+    <div class="row hidden pagePane helpPane">
+      <div class="twelve columns centered">
+        <h3 class="lead brighterFont">Hur använder man kalkylatorn egentligen?</h3>
+        <p class="brighterFont">Mer här snart.</p>
+      </div>
     </div>
   </body>
 </html>
