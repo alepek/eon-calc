@@ -5,3 +5,4 @@ http://www.icotrip.com/
 http://gumbyframework.com/
 http://jquery.com/
 http://modernizr.com/
+http://ricostacruz.com/jquery.transit/

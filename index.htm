@@ -2,7 +2,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>ECC - Eon Combat Calculator</title>
+    <title>EonKalk</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
     <link rel="stylesheet" href="css/gumby.css">
@@ -13,6 +13,7 @@
     <script src="js/libs/modernizr-2.6.2.min.js"></script>
     <script src="js/libs/jquery-2.0.2.min.js"></script>
     <script src="js/libs/jquery.mobile.custom.min.js"></script>
+    <script src="js/libs/jquery.transit.min.js"></script>
     <script src="js/libs/gumby.js"></script>
     <script src="js/libs/gumby.init.js"></script>
     <script src="js/libs/ui/gumby.navbar.js"></script>
@@ -106,7 +107,7 @@
     </div>
     <div class="row hidden pagePane calculatorPane">
       <div class="twelve columns centered">
-        <div class="row">
+        <div class="row helpTextArea">
           <div class="twelve columns centered">
             <h4 class="brighterFont text-centered">Skriv in skadevärde (innan avdrag för RV)</h4>
             <br/>
@@ -122,7 +123,7 @@
         </div>
         <div class="row">
           <div class="twelve columns centered text-centered">
-            <h4 class="brighterFont text-centered">Välj skadetyp (klicka igen för att generera nytt resultat)</h4>
+            <h4 class="brighterFont helpTextArea text-centered">Välj skadetyp (klicka igen för att generera nytt resultat)</h4>
             <br/>            
             <div class="medium info btn damageButton crush"><a>Kross</a></div>
             <div class="medium info btn damageButton poke"><a>Stick</a></div>
@@ -146,7 +147,7 @@
     <div id="templateContainer" class="hidden">
       <div class="damageHeading text-centered">
         <h4 class="brighterFont">Du gjorde <span class="damageType"></span> för ett skadevärde av <span class="damageValue"></span>.</h4>
-        <h4 class="areasHit brighterFont">Du träffade i <span class="firstArea" ></span> - <span class="secondArea"></span></h4>
+        <h4 class="areasHit brighterFont">Du träffade i <span class="firstArea" ></span> - <span class="secondArea"></span>.</h4>
       </div>
       <div class="intervalContainer">
         <h4 class="armorInterval brighterFont"></h4>

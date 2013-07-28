@@ -117,12 +117,31 @@ ResultUpdater =
 		}
 		return true;
 	},
+	HideHelpAreasIfVisible: function()
+	{
+		var helpAreas = jQuery(".helpTextArea");
+		helpAreas.each(function()
+		{
+			if(jQuery(this).is(":visible"))
+			{
+				jQuery(this).transit({
+				    opacity: 0,
+				  	}, 500, 
+				  	function() 
+					{
+						jQuery(this).slideUp(500);
+					}
+			  	);
+			}
+		});
+		GC.DamageInput.prop("placeholder", "Skadevärde innan RV");
+	},
 	GenerateResultOutput: function(damageType)
 	{
 		var damageValue = GC.DamageInput.val();
 		if(!ResultUpdater.CheckDamageValue(damageValue))
 		{
-			ResultUpdater.ShowInvalidInputWarning("Skriv in ett heltal.")
+			ResultUpdater.ShowInvalidInputWarning("Skriv in ett positivt heltal.")
 			return;
 		}
 
@@ -135,6 +154,8 @@ ResultUpdater =
 			return;
 		}
 		// alright, let's get cracking.
+
+		ResultUpdater.HideHelpAreasIfVisible();
 
 		var hit = EonRules.RollForHit(damageValue);
 		var mainHitArea = hit.hitArea.title;
@@ -190,10 +211,13 @@ ResultUpdater =
 	},
 	ShowInvalidInputWarning: function(reason)
 	{
-		if(GC.InputWarning.is(":visible"))
-			return;
-		
 		GC.InputWarning.find("h4").text(reason);
+
+		if(GC.InputWarning.is(":visible"))
+		{
+			return;
+		}
+		
 		GC.InputWarning.slideDown(250, function()
 		{
 			setTimeout(function()
