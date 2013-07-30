@@ -22,6 +22,7 @@
     <script src="js/libs/ui/gumby.tabs.js"></script>
     <script src="js/libs/ui/gumby.toggleswitch.js"></script>
     <script src="js/libs/ui/gumby.checkbox.js"></script>
+    <script src="js/libs/jquery.stellar.min.js"></script>
     
     <script src="js/main.js"></script>
     <style>
@@ -38,16 +39,20 @@
       z-index:-5;
 
     }
-    .backgroundOpacifier {
-        opacity: 0;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        position: absolute;
-        background-color:black;
-        z-index: -4;
-      }
+    .stellarBackground{
+      background: url(img/b.jpg)  no-repeat fixed;      
+    }
+    .moon {
+      background-color: #373940;
+      border-radius: 50px;
+      box-shadow: 0 0 50px #3F6169;
+      height: 100px;
+      left: 50px;
+      position: fixed;
+      top: 150px;
+      width: 100px;
+      z-index: -4;
+    }
     .customTableHeader{
       background-color:#4a4d50 !important;
     }
@@ -98,6 +103,9 @@
         </nav>
       </div>
     </nav>
+
+    <div class="moon" data-stellar-ratio="0.33" data-stellar-horizontal-offset="100"></div>
+
     <div class="row pagePane homePane">
       <div class="twelve columns centered">
         <h3 class="lead brighterFont">Välkommen!</h3>
@@ -105,7 +113,7 @@
       </div>
 
     </div>
-    <div class="row hidden pagePane calculatorPane">
+    <div class="row hidden pagePane calculatorPane"> 
       <div class="twelve columns centered">
         <div class="row helpTextArea">
           <div class="twelve columns centered">

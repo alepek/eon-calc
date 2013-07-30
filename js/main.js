@@ -22,6 +22,7 @@ Gumby.touch(function() {
 $(function() 
 {
 	// global stuff that doesn't change.
+	jQuery("body").stellar();
 	GC = {};
 	GC.SwitchingPanes = false;
 
